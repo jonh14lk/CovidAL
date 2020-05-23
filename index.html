@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico" />
+  <title>CovidAL</title>
+  <link
+    rel="canonical"
+    href="https://getbootstrap.com/docs/4.0/examples/dashboard/"
+  />
+  <link
+    href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://getbootstrap.com/docs/4.0/examples/dashboard/dashboard.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">CovidAL</a>
+    <ul class="navbar-nav px-3"></ul>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <p class="text-primary">Dados retirados de: http://www.saude.al.gov.br/</p>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Casos Confirmados nos últimos 7 dias</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+    </div>
+  </div>
+  <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Óbitos Confirmados nos últimos 7 dias</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+    </div>
+  </div>
+  <canvas class="my-4" id="myChart2" width="900" height="380"></canvas>
+
+  <h2>Números por cidade</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Cidade</th>
+          <th>Casos Confirmados</th>
+          <th>Óbitos Confirmados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Anadia</td>
+          <td>16</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Arapiraca</td>
+          <td>145</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Atalaia</td>
+          <td>42</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Barra de Santo Antônio</td>
+          <td>7</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Barra de São Miguel </td>
+          <td>9</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Batalha</td>
+          <td>6</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Belém</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Boca da Mata</td>
+          <td>18</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Branquinha</td>
+          <td>5</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Cacimbinhas</td>
+          <td>6</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Cajueiro</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>Campestre</td>
+          <td>15</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>Campo Alegre</td>
+          <td>19</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>Campo Grande</td>
+          <td>9</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>Canapi</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>Capela</td>
+          <td>20</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>Carneiros</td>
+          <td>5</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>Coité do Noia</td>
+          <td>4</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>Colônia Leopoldina</td>
+          <td>15</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>Coqueiro Seco</td>
+          <td>17</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>Coruripe</td>
+          <td>63</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>Craíbas</td>
+          <td>16</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td>Delmiro Gouveia</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td>Dois Riachos</td>
+          <td>2</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td>Feira Grande</td>
+          <td>9</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td>Feliz Deserto</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td>Flexeiras</td>
+          <td>3</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td>Girau do Ponciano</td>
+          <td>7</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>29</td>
+          <td>Ibateguara</td>
+          <td>4</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td>Igaci</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>31</td>
+          <td>Jacuípe</td>
+          <td>8</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td>Japaratinga</td>
+          <td>8</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td>Jaramataia</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td>Jequiá da Praia</td>
+          <td>50</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>35</td>
+          <td>Joaquim Gomes</td>
+          <td>6</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>36</td>
+          <td>Jundiá</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>37</td>
+          <td>Junqueiro</td>
+          <td>42</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>38</td>
+          <td>Jundiá</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>39</td>
+          <td>Lagoa da Canoa</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>40</td>
+          <td>Limoeiro de Anadia</td>
+          <td>7</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>41</td>
+          <td>Maceió</td>
+          <td>3277</td>
+          <td>184</td>
+        </tr>
+        <tr>
+          <td>42</td>
+          <td>Major Izidoro</td>
+          <td>8</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>43</td>
+          <td>Mar Vermelho</td>
+          <td>3</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>44</td>
+          <td>Maragogi</td>
+          <td>48</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>45</td>
+          <td>Maravilha</td>
+          <td>5</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>46</td>
+          <td>Marechal Deodoro</td>
+          <td>162</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>47</td>
+          <td>Maribondo</td>
+          <td>14</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>48</td>
+          <td>Matriz do Camaragibe</td>
+          <td>9</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>49</td>
+          <td>Messias</td>
+          <td>8</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>50</td>
+          <td>Minador do Negrão</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>51</td>
+          <td>Monteirópolis</td>
+          <td>4</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>52</td>
+          <td>Murici</td>
+          <td>67</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>53</td>
+          <td>Novo Lino</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>54</td>
+          <td>Olho D’Água das Flores</td>
+          <td>9</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>55</td>
+          <td>Olho D’Água do Casado</td>
+          <td>3</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>56</td>
+          <td>Olivença</td>
+          <td>2</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>57</td>
+          <td>Ouro Branco</td>
+          <td>6</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>58</td>
+          <td>Palestina</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>59</td>
+          <td>Palmeira dos Índios</td>
+          <td>76</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>60</td>
+          <td>Pão de Açúcar</td>
+          <td>10</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>61</td>
+          <td>Paripueira</td>
+          <td>16</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>62</td>
+          <td>Passo de Camaragibe</td>
+          <td>16</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>63</td>
+          <td>Paulo Jacinto</td>
+          <td>10</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>64</td>
+          <td>Penedo</td>
+          <td>13</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>65</td>
+          <td>Piaçabuçu </td>
+          <td>12</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>66</td>
+          <td>Pilar</td>
+          <td>61</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>67</td>
+          <td>Pindoba</td>
+          <td>6</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>68</td>
+          <td>Piranhas</td>
+          <td>3</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>69</td>
+          <td>Poço das Trincheiras</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>70</td>
+          <td>Porto Calvo</td>
+          <td>82</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>71</td>
+          <td>Porto de Pedras</td>
+          <td>8</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>72</td>
+          <td>Porto Real do Colégio</td>
+          <td>6</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>73</td>
+          <td>Quebrangulo</td>
+          <td>13</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>74</td>
+          <td>Rio Largo</td>
+          <td>100</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>75</td>
+          <td>Roteiro</td>
+          <td>3</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>76</td>
+          <td>Santa Luzia do Norte</td>
+          <td>31</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>77</td>
+          <td>Santana do Ipanema</td>
+          <td>40</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>78</td>
+          <td>Santana do Mundaú</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>79</td>
+          <td>São José da Laje</td>
+          <td>46</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>80</td>
+          <td>São José da Tapera</td>
+          <td>8</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>81</td>
+          <td>São Luís do Quitunde</td>
+          <td>20</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>82</td>
+          <td>São Miguel dos Campos</td>
+          <td>87</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>83</td>
+          <td>São Miguel dos Milagres </td>
+          <td>19</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>84</td>
+          <td>São Sebastião</td>
+          <td>111</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>85</td>
+          <td>Satuba</td>
+          <td>103</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>86</td>
+          <td>Senador Rui Palmeira </td>
+          <td>2</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>87</td>
+          <td>Tanque D’Arca</td>
+          <td>7</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>88</td>
+          <td>Taquarana</td>
+          <td>11</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>89</td>
+          <td>Teotônio Vilela</td>
+          <td>52</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>90</td>
+          <td>União Dos Palmares</td>
+          <td>58</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>91</td>
+          <td>Viçosa</td>
+          <td>15</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Sábado 16/05", "Domingo 17/05", "Segunda 18/05", "Terça 19/05", "Quarta 20/05", "Quinta 21/05", "Sexta 22/05"],
+          datasets: [{
+            data: [3593, 3816, 4031, 4319, 4437, 4916, 5302],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+    <script>
+      var ctx = document.getElementById("myChart2");
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Sábado 16/05", "Domingo 17/05", "Segunda 18/05", "Terça 19/05", "Quarta 20/05", "Quinta 21/05", "Sexta 22/05"],
+          datasets: [{
+            data: [199, 210, 221, 234, 251, 262, 280],
+            lineTension: 0,
+            backgroundColor: 'transparent',
+            borderColor: '#007bff',
+            borderWidth: 4,
+            pointBackgroundColor: '#007bff'
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: false
+              }
+            }]
+          },
+          legend: {
+            display: false,
+          }
+        }
+      });
+    </script>
+  </body>
