@@ -42,6 +42,8 @@ signed main()
         num2 = num2 + s[i];
         s.erase(i, 1);
       }
+      reverse(num1.begin(), num1.end());
+      reverse(num2.begin(), num2.end());
       cout << "<tr>\n";
       cout << "<td>\n";
       cout << j << endl;
