@@ -1,18 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define PI acos(-1)
-#define lli long long int
-#define pb push_back
-#define mp make_pair
-#define pi pair<int, int>
-#define fir first
-#define sec second
-#define MAXN 200010
-#define MAXL 5201
-#define mod 1000000007
-
-signed main()
+int main()
 {
   string s;
   int j = 1;
@@ -45,18 +34,18 @@ signed main()
       reverse(num1.begin(), num1.end());
       reverse(num2.begin(), num2.end());
       cout << "<tr>\n";
-      cout << "<td>\n";
-      cout << j << endl;
-      cout << "</td>\n";
-      cout << "<td>\n";
-      cout << s << endl;
-      cout << "</td>\n";
-      cout << "<td>\n";
-      cout << num2 << endl;
-      cout << "</td>\n";
-      cout << "<td>\n";
-      cout << num1 << endl;
-      cout << "</td>\n";
+      cout << "  " << "<td>\n";
+      cout << "    " << j << endl;
+      cout << "  " << "</td>\n";
+      cout << "  " << "<td>\n";
+      cout << "    " << s << endl;
+      cout << "  " << "</td>\n";
+      cout << "  " << "<td>\n";
+      cout << "    " << num2 << endl;
+      cout << "  " << "</td>\n";
+      cout << "  " << "<td>\n";
+      cout << "    " << num1 << endl;
+      cout << "  " << "</td>\n";
       cout << "</tr>\n";
       j++;
     }
