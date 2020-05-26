@@ -52,17 +52,29 @@
   </div>
   <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-      <h1 class="h2">Casos Confirmados nos últimos 7 dias</h1>
+      <h1 class="h2">Casos confirmados nos últimos 7 dias</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
       </div>
     </div>
     <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-      <h1 class="h2">Óbitos Confirmados nos últimos 7 dias</h1>
+      <h1 class="h2">Óbitos confirmados nos últimos 7 dias</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
       </div>
     </div>
     <canvas class="my-4" id="myChart2" width="900" height="380"></canvas>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+      <h1 class="h2">Casos recuperados nos últimos 7 dias</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+      </div>
+    </div>
+    <canvas class="my-4" id="myChart3" width="900" height="380"></canvas>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+      <h1 class="h2">Casos suspeitos nos últimos 7 dias</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+      </div>
+    </div>
+    <canvas class="my-4" id="myChart4" width="900" height="380"></canvas>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
       <h1 class="h2">Mapa</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
@@ -1467,6 +1479,64 @@
         labels:["Terça 19/05", "Quarta 20/05", "Quinta 21/05", "Sexta 22/05", "Sábado 23/05", "Domingo 24/05", "Segunda 25/05"],
         datasets: [{
           data: [234, 251, 262, 280, 301, 316, 337],
+          lineTension: 0,
+          backgroundColor: 'transparent',
+          borderColor: '#007bff',
+          borderWidth: 4,
+          pointBackgroundColor: '#007bff'
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: false
+            }
+          }]
+        },
+        legend: {
+          display: false,
+        }
+      }
+    });
+  </script>
+  <script>
+    var ctx = document.getElementById("myChart3");
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels:["Terça 19/05", "Quarta 20/05", "Quinta 21/05", "Sexta 22/05", "Sábado 23/05", "Domingo 24/05", "Segunda 25/05"],
+        datasets: [{
+          data: [2504, 2619, 2822, 3040, 3224, 3436, 3653],
+          lineTension: 0,
+          backgroundColor: 'transparent',
+          borderColor: '#007bff',
+          borderWidth: 4,
+          pointBackgroundColor: '#007bff'
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: false
+            }
+          }]
+        },
+        legend: {
+          display: false,
+        }
+      }
+    });
+  </script>
+  <script>
+    var ctx = document.getElementById("myChart4");
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels:["Terça 19/05", "Quarta 20/05", "Quinta 21/05", "Sexta 22/05", "Sábado 23/05", "Domingo 24/05", "Segunda 25/05"],
+        datasets: [{
+          data: [1100, 1370, 1803, 1615, 1427, 990, 672],
           lineTension: 0,
           backgroundColor: 'transparent',
           borderColor: '#007bff',
